@@ -126,10 +126,15 @@ Future<void> generatePdfInvoice(
 Future<Uint8List> _loadAssetImage(String assetPath) async {
   try {
     final data = await rootBundle.load(assetPath);
-    return data.buffer.asUint8List();
+    final bytes = data.buffer.asUint8List();
+    // For PNG images, use direct bytes without processing
+    if (assetPath.toLowerCase().endsWith('.png')) {
+      return bytes;
+    }
+    // For JPG, consider converting to PNG for better quality
+    return bytes;
   } catch (e) {
     print('Error loading asset $assetPath: $e');
-    // Return an empty image as fallback
     return Uint8List(0);
   }
 }
@@ -150,10 +155,14 @@ pw.Widget _buildHeaderSection(Uint8List logoBytes, Uint8List qrBytes,
     crossAxisAlignment: pw.CrossAxisAlignment.start,
     children: [
       pw.Image(
-        pw.MemoryImage(logoBytes),
+        pw.MemoryImage(
+            logoBytes,
+          dpi: 300,
+        ),
         width: 120, // Reduced logo size
         height: 60,
         fit: pw.BoxFit.fill,
+        dpi: 300,
       ),
       pw.Column(
         crossAxisAlignment: pw.CrossAxisAlignment.end,
