@@ -12,7 +12,8 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  
+   createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -766,11 +767,11 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           flex: 1,
           child: TextFormField(
-            controller: _quantityController,
+            controller: _rateController,
             decoration: InputDecoration(
-              labelText: 'Quantity',
+              labelText: 'Rate (₹)',
               border: OutlineInputBorder(),
-              hintText: 'e.g. 2',
+              hintText: 'e.g. 20',
             ),
             keyboardType: TextInputType.number,
           ),
@@ -779,11 +780,11 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           flex: 1,
           child: TextFormField(
-            controller: _rateController,
+            controller: _quantityController,
             decoration: InputDecoration(
-              labelText: 'Rate (₹)',
+              labelText: 'Quantity',
               border: OutlineInputBorder(),
-              hintText: 'e.g. 20',
+              hintText: 'e.g. 2',
             ),
             keyboardType: TextInputType.number,
           ),

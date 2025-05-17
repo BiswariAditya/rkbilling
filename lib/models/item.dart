@@ -17,7 +17,7 @@ class Item {
     required this.taxRate,
   });
 
-  String get sizeString => '$length x $breadth';
+  String get sizeString => (length==0 || breadth==0)?'':'$length x $breadth';
 
   double get size => length * breadth;
 
