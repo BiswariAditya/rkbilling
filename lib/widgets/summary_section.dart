@@ -13,7 +13,6 @@ class SummarySection{
       num totalAmount,
       pw.Font customFont) {
     return pw.Row(
-      crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
         pw.Expanded(flex: 7, child: pw.Container()),
         pw.Container(
@@ -49,21 +48,21 @@ class SummarySection{
       decoration: isTotal ? pw.BoxDecoration(color: PdfColors.grey200) : null,
       children: [
         pw.Padding(
-          padding: pw.EdgeInsets.all(3), // Consistent padding
+          padding: pw.EdgeInsets.all(3), // Reduced padding
           child: pw.Text(
             label,
             style: pw.TextStyle(
-              fontSize: 8, // Consistent font size
+              fontSize: 8, // Smaller font size
               fontWeight: isTotal ? pw.FontWeight.bold : null,
             ),
           ),
         ),
         pw.Padding(
-          padding: pw.EdgeInsets.all(3), // Consistent padding
+          padding: pw.EdgeInsets.all(3), // Reduced padding
           child: pw.Text(
             amount,
             style: pw.TextStyle(
-              fontSize: 8, // Consistent font size
+              fontSize: 8, // Smaller font size
               fontWeight: isTotal ? pw.FontWeight.bold : null,
             ),
             textAlign: pw.TextAlign.right,
