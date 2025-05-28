@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _lengthController = TextEditingController();
   final TextEditingController _breadthController = TextEditingController();
   final TextEditingController _hsnCodeController = TextEditingController();
+
   final TextEditingController _quantityController = TextEditingController();
   final TextEditingController _rateController = TextEditingController();
 
